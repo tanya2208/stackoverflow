@@ -1,0 +1,44 @@
+.header{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 0 100px;
+    background: #fff;
+}
+.header-btn-group{
+    display: flex;
+}
+.header-logo{
+    text-decoration: none;
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+}
+.header-logo span{
+    color: #7011DB;
+}
+.header-nav-link{
+    text-decoration: none;
+    color: #000;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.header-nav-link .profile{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.header-nav-link .profile img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.logout-btn{
+    background: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}

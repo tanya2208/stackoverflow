@@ -1,0 +1,24 @@
+.login-container{
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 15vh;
+    background: #fff;
+}
+.login-container h3{
+    font-size: 18px;
+    margin-top: 25px;
+}
+.login-form{
+    margin-top: 32px;
+}
+.custom-input{
+    margin-bottom: 12px;
+}
+.login-container .submit-btn{
+    margin-top: 32px;
+}

@@ -1,0 +1,22 @@
+.tag{
+    background: #000000;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 12px;
+    width: fit-content;
+    margin: 6px 2px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+.tag .close-btn{
+    background: transparent;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+}

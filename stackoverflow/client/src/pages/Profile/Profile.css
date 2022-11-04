@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+.profile-wrapper{
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+.personal-info{
+    padding: 32px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    text-align: center;
+    min-width: 392px
+}
+.avatar{
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+    background: grey;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avatar img{
+    width: 135px;
+    height: 135px;
+}
+.user-name, .user-position{
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+    margin-top: 12px;
+    line-height: 36px;
+}
+.user-position{
+    margin-top: 24px;
+}
+.grey-field{
+    color: #787878;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+.user-stack{
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.edit-btn{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 16px;
+    margin-top: 24px;
+}
+.stat-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.stat-item{
+    background: #000000;
+    border-radius: 24px; 
+    color: #FFFFFF;   
+    width: calc(100% / 4 - 8px);
+    padding: 24px;
+    box-sizing: border-box;
+}
+.stat-item-value{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+}
+.stat-item-name{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+.activity-info{
+    width: 60%;
+}
+.user-questions{
+    margin-top: 48px;
+}
+.user-questions h2{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 24px;
+}
+.edit-user-modal{
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF;
+    border-radius: 20px;
+    z-index: 10;
+    padding: 32px 0;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+.backdrop{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .6);
+}
+.edit-user-modal input{
+    width: 60%;
+    margin: 0 auto 12px auto !important;
+}
+.edit-title{
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 32px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 32px;
+}
+.simple-btn{
+    margin-right: 4px;
+}
+.edit-from-tag-container{
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.edit-from-tag-container input{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+.profile-wrapper .title{
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+.field-wrapper{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: space-between;
+    margin: 0 20px 20px 20px;
+}
+.field-name{
+    margin-right: 20px;
+    font-weight: bold;
+}
+.row{
+    display: flex;
+    align-items: flex-end;
+}
+.stack-wrapper{
+    margin: 40px 20px 0 20px;
+}
+
+.stack-wrapper .field-name{
+    margin-bottom: 15px;
+}
+.field-wrapper input{
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(149, 157, 165, 0.2);
+    outline: none;
+    width: 40%;
+}
+
+.statistics{
+    margin-top: 50px;
+}
+.statistics h2{
+    text-align: center;
+}
