@@ -40,7 +40,6 @@ router.post('/users/logout', auth, async (req, res) => {
         req.user.tokens = req.user.tokens.filter(token => {
             return token.token !== req.token
         })
-
         await req.user.save()
 
         return res.json({status: 'ok'})
@@ -72,6 +71,7 @@ router.post('/users/update/:id', async (req, res) => {
     try {
         const user = await User.findById(req.params.id)
         updates.forEach((update) => user[update] = req.body[update])
+        user.rating.overall = calculateRating(user)
         await user.save()
         return res.json({ status: 'ok', user: user })
     } catch (error) {
@@ -83,13 +83,33 @@ router.post('/users/updateRating/:id', async (req, res) => {
     const update = req.body.field
     try {
         const user = await User.findById(req.params.id)
+        if(req.body.answerRating){
+            if(req.body.answerRating == 0){
+                user.rating[update] = parseInt(user.rating[update])+1
+            } else return
+        } 
         user.rating[update] = parseInt(user.rating[update])+1
+        // RATING
+        user.rating.overall = calculateRating(user)
         await user.save()
         return res.json({ status: 'ok', user: user })
     } catch (error) {
         res.json({ status: 'error', error })
     }
 })
+
+function calculateRating(user){
+    let rating = 0;
+    rating= 0.5 * user.rating.questions + user.rating.answers + 5 * user.rating.liked + 10 * user.rating.accepted;
+    if(user.experience > 0 && user.experience <= 2 || user.position.toLowerCase().contains('junior')){
+        rating += 10
+    } else if(user.experience > 2 && user.experience <= 4 || user.position.toLowerCase().contains('middle')) {
+        rating += 50
+    } else if(user.experience > 4 || user.position.toLowerCase().contains('senior')) {
+        rating += 100
+    }
+    return rating
+}
 
 router.get('/users/:id/questions', async (req, res) => {
     try {

@@ -9,7 +9,7 @@ import userAvatar from '../../images/user.png'
 
 function Profile(props){
     const params = useParams();
-	const [user, setUser] = useState({rating: {}, nickname: ''}) 
+	const [user, setUser] = useState({rating: {}}) 
 	const [userCopy, setUserCopy] = useState({})
 	const [editMode, setEditMode] = useState(false)
 	const [access, setAccess] = useState(false)
@@ -68,7 +68,9 @@ function Profile(props){
     }
 
     async function saveHandler(){
-        setUser((prevState) => { return {...prevState, stack} })
+        let userTmp = user
+        userTmp.stack = stack
+        setUser(userTmp)
         const req = await fetch('http://localhost:1337/users/update/' + params.userId, {
 			method: 'POST',
             headers: {
@@ -86,13 +88,20 @@ function Profile(props){
 		}
     }
 
+    const sendTags = (tags) => {
+        setStack(tags)
+    };
+
     return(
         <div>
             {user && 
             <div className="profile-wrapper">
                 <div className="personal-info-container">
                     <div className="personal-info">
-                        <div className="avatar"><img src={userAvatar} alt="User avatar"/></div>
+                        <div className="avatar">
+                            <img src={userAvatar} alt="User avatar"/>
+                            <div className="overall-rating">{user.rating.overall}</div>
+                        </div>
                         <div className="user-name">{user.name} {user.surname}</div>
                         <div className="user-nickname grey-field">{user.nickname}</div>
                         <div className="user-email grey-field">{user.email}</div>
@@ -145,10 +154,10 @@ function Profile(props){
                     <input name="email" value={user.email} placeholder="Email" onChange={handleInputChange} className="custom-input"/>
                     <input name="nickname" value={user.nickname} placeholder="Nickname" onChange={handleInputChange} className="custom-input"/>
                     <input name="position" value={user.position} onChange={handleInputChange} placeholder="Working Position" className="custom-input"/>
-                    <input name="experience" value={user.experience} type="number" onChange={handleInputChange} placeholder="Years of experience" className="custom-input"/>
-                    {/* <div className="edit-from-tag-container">
-                        <TagInput setChosenTags={setStack} stack={stack} showTags={true}></TagInput>
-                    </div> */}
+                    <input name="experience" value={user.experience ? user.experience : ''} type="number" onChange={handleInputChange} placeholder="Years of experience" className="custom-input"/>
+                    <div className="edit-from-tag-container">
+                        <TagInput sendTags={sendTags} stack={stack} showTags={true}></TagInput>
+                    </div>
                     <div className="buttons">
                         <button className="simple-btn" onClick={cancelHandler}>Cancel</button>
                         <button className="submit-btn" onClick={saveHandler}>Save</button>

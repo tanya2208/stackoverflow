@@ -33,6 +33,7 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .avatar img{
     width: 135px;
@@ -156,52 +157,17 @@ button{
 .edit-from-tag-container input{
     width: 100%;
 }
-
-
-
-
-
-
-
-
-.profile-wrapper .title{
-    margin-bottom: 50px;
+.overall-rating{
+    border-radius: 50%;
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 5px;
+    top: -10px;
     display: flex;
+    justify-content: center;
     align-items: center;
-}
-.field-wrapper{
-    display: flex;
-    align-items: center;
-    width: 50%;
-    justify-content: space-between;
-    margin: 0 20px 20px 20px;
-}
-.field-name{
-    margin-right: 20px;
     font-weight: bold;
-}
-.row{
-    display: flex;
-    align-items: flex-end;
-}
-.stack-wrapper{
-    margin: 40px 20px 0 20px;
-}
-
-.stack-wrapper .field-name{
-    margin-bottom: 15px;
-}
-.field-wrapper input{
-    padding: 5px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(149, 157, 165, 0.2);
-    outline: none;
-    width: 40%;
-}
-
-.statistics{
-    margin-top: 50px;
-}
-.statistics h2{
-    text-align: center;
 }

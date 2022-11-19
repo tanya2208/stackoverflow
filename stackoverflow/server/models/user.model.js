@@ -13,10 +13,11 @@ const userSchema = new mongoose.Schema(
         experience: {type: Number},
         stack: {type: Array, default: void 0},
         rating: {
-            questions: {type: Number},
-            answers: {type: Number},
-            liked: {type: Number},
-            accepted: {type: Number}
+            questions: {type: Number, default: 0},
+            answers: {type: Number, default: 0},
+            liked: {type: Number, default: 0},
+            accepted: {type: Number, default: 0},
+            overall: {type: Number, default: 0},
         },
         tokens: [{ token : {type: String, required: true}}]
     },

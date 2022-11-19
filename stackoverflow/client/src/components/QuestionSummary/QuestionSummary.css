@@ -12,7 +12,7 @@
     text-decoration: none;
 }
 .question-description{
-    margin: 12px 0 0 0;
+    margin: 12px 0 12px 0;
 }
 .tags-container{
     display: flex;

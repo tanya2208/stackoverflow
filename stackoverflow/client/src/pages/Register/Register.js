@@ -44,14 +44,15 @@ function Register(){
                     questions: 0,
                     answers: 0,
                     liked: 0,
-                    accepted: 0
+                    accepted: 0,
+                    overall: 0
                 }
               })
         })
         const data = await response.json()
         if(data.status === 'ok'){
             localStorage.setItem('token', data.token)
-            navigate('/')
+            window.location.href = '/'
         } else{
             setErrorMessage('Something went wrong. Please try again')
         }

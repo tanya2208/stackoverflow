@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Tag from "../../components/Tag/Tag";
 import './TagInput.css'
 
-function TagInput({filterTags, setFilterTags, showTags = true, border = true}){
+function TagInput({filterTags, setFilterTags, showTags = true, border = true, sendTags, stack = []}){
     const [tags, setTags] = useState([])
     const [filteredTags, setFilteredTags] = useState([])
     const [tagsCopy, setTagsCopy] = useState([])
@@ -16,6 +16,14 @@ function TagInput({filterTags, setFilterTags, showTags = true, border = true}){
 		if (data.status === 'ok') {
 			setTags([...data.tags])
 			setTagsCopy([...data.tags])
+            if(stack){
+                setChosenTags(stack)
+                stack.forEach(item => {
+                    let index = data.tags.findIndex(i => i.name == item)
+                    data.tags.splice(index, 1)
+                    setTags(data.tags)
+                });
+            }
 		} else {
 			alert(data.error)
 		}
@@ -43,6 +51,9 @@ function TagInput({filterTags, setFilterTags, showTags = true, border = true}){
         tagsArr.push(tag)
         if(showTags){
             setChosenTags([...tagsArr])
+            if(sendTags){
+                sendTags(chosenTags)
+            }
         } else{
             setFilterTags([...tagsArr])
         }
@@ -50,7 +61,6 @@ function TagInput({filterTags, setFilterTags, showTags = true, border = true}){
         tags.splice(index, 1)
         closeDropdownHandler()
         document.querySelector('.tag-input').value = ''
-        console.log(chosenTags)
     }
 
     function closeDropdownHandler(){
@@ -74,6 +84,9 @@ function TagInput({filterTags, setFilterTags, showTags = true, border = true}){
                 let chosenTagsArr = [...chosenTags]
                 chosenTagsArr.splice(chosenTagsArr.length-1, 1)
                 setChosenTags(chosenTagsArr)
+                if(sendTags){
+                    sendTags([...chosenTags])
+                }
             }
         }
     }
@@ -84,6 +97,9 @@ function TagInput({filterTags, setFilterTags, showTags = true, border = true}){
         chosenCopy.splice(index, 1)
         setChosenTags([...chosenCopy])
         setTags([...tags, deletedTag])
+        if(sendTags){
+            sendTags(chosenCopy)
+        }
     }
 
     return(

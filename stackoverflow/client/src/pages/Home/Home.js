@@ -41,7 +41,6 @@ function Home(){
 		const token = localStorage.getItem('token')
 		if (token) {
 			const user = decodeToken(token)
-			console.log(user)
 			if (!user) {
 				localStorage.removeItem('token')
 				navigate('/login')
