@@ -39,6 +39,19 @@ router.get('/questions/:id', async (req, res) => {
 	}
 })
 
+router.post('/questions/:id/answers', async (req, res) => {
+    const chunk = req.body.chunk
+    const startIndex = chunk * 5
+    const endIndex = startIndex + 5
+    try {
+		const question = await Question.findById(req.params.id)
+        const answers = question.answers
+		return res.json({ status: 'ok', answers : answers.splice(startIndex, endIndex)})
+	} catch (error) {
+		res.json({ status: 'error', error: 'invalid token' })
+	}
+})
+
 router.post('/questions/filtered', async (req, res) => {
     try {
         let query = {}

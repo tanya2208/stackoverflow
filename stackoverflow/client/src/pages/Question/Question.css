@@ -27,3 +27,25 @@
     margin: 12px 0 0 auto;
     display: block;
 }
+.pagination{
+    margin: 16px auto 32px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prev img{
+    transform: rotate(90deg);
+}
+.next img{
+    transform: rotate(-90deg);
+}
+.pagination button.simple-btn{
+    padding: 10px 15px;
+}
+.pagination button.simple-btn.next{
+    margin-left: 4px;
+    margin-right: 0;
+}
+.pagination p{
+    margin: 0 8px;
+}
